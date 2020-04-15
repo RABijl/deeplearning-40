@@ -77,11 +77,11 @@ def process_cityscapes(gtFine_dir, leftImg8bit_dir, output_dir, phase):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--gtFine_dir', type=str, required=True,
+    parser.add_argument('--gtFine_dir', type=str, default='./datasets/gtFine',
                         help='Path to the Cityscapes gtFine directory.')
-    parser.add_argument('--leftImg8bit_dir', type=str, required=True,
+    parser.add_argument('--leftImg8bit_dir', type=str, default='./datasets/leftImg8bit',
                         help='Path to the Cityscapes leftImg8bit_trainvaltest directory.')
-    parser.add_argument('--output_dir', type=str, required=True,
+    parser.add_argument('--output_dir', type=str,
                         default='./datasets/cityscapes',
                         help='Directory the output images will be written to.')
     opt = parser.parse_args()

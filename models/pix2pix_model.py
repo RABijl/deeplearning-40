@@ -105,7 +105,7 @@ class Pix2PixModel(BaseModel):
         """Calculate GAN and L1 loss for the generator"""
         # Second, G(A) = B
         self.loss_G_L1 = self.criterionL1(self.fake_B, self.real_B) * self.opt.lambda_L1
-        if self.opt.no_criterion:
+        if not self.opt.no_criterion:
 
             # First, G(A) should fake the discriminator
             fake_AB = torch.cat((self.real_A, self.fake_B), 1)

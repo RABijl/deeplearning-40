@@ -38,7 +38,7 @@ A phenomenon we noticed is that in a docker container, `nvidia-smi` will show yo
 
 Manjaro is a popular distribution of Arch linux and does a lot of things slightly different. Luckily the documentation is very helpful. To install the Nvidia drivers you can use the `Manjaro Settings Manager` gui and go to `Hardware Configuration`. Other ways to install the drivers are via:
 ```
-sudo pacman -S core/mhwd-nvidia-440xx
+sudo pacman -S mhwd-nvidia-440xx
 ```
 or
 ```
@@ -70,7 +70,9 @@ The nvidia-docker github does not have instructions on installing nvidia-docker 
 ```
 sudo pamac install docker
 ```
-as for nvidia-docker the 
+as for nvidia-docker, this is a bit more complicated. The [Arch Wiki](https://wiki.archlinux.org/index.php/Docker#Run_GPU_accelerated_Docker_containers_with_NVIDIA_GPUs) has a guide on running nvidia-docker. It requires you to install [this](https://aur.archlinux.org/packages/nvidia-container-toolkit/) package. The easiest way is to use the pamac manager gui for this.
+
+Now it can happen that the script fails because it cannot find a number of files that end in `.tar.xz` the [reason](https://www.archlinux.org/news/now-using-zstandard-instead-of-xz-for-package-compression/) for this that the repository has changed compression type to instead use `.tar.zst`. These errors can be fixed by changing the scripts to use the same packages but ending in `.tar.zst`.
 
 ### Caffe container
 
